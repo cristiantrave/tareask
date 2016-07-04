@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="tareask"/>
+  <table-filter match-name="task_status"/>
+  <table-filter match-name="email_folder"/>
+  <table-filter match-name="department"/>
+  <table-filter match-name="group_status"/>
+  <table-filter match-name="task_priority"/>
+  <table-filter match-name="incidence"/>
+  <table-filter match-name="message_receptor"/>
+  <table-filter match-name="email_message"/>
+  <table-filter match-name="grade"/>
+  <table-filter match-name="email_contact"/>
+  <table-filter match-name="email"/>
+  <table-filter match-name="session_user"/>
+  <table-filter match-name="incidence_status"/>
+  <table-filter match-name="group_users"/>
+  <table-filter match-name="email_conversation"/>
+  <table-filter match-name="group"/>
+  <table-filter match-name="task"/>
+  <table-filter match-name="user_status"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="group_message"/>
+  <table-filter match-name="task_report"/>
+  <table-filter match-name="role"/>
+  <table-filter match-name="milestone"/>
+  <table-filter match-name="milestone_status"/>
+  <table-filter match-name="email_status"/>
+</hibernate-reverse-engineering>
