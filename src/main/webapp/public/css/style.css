@@ -1,0 +1,60 @@
+@media only screen and (max-width: 640px) {
+    .hidde640{
+        visibility: hidden;
+        display: none;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .visible640{
+        visibility: visible !important;
+    }
+}
+@media only screen and (max-width: 672px) {
+    .hidde672{
+        visibility: hidden;
+        display: none;
+    }
+}
+@media only screen and (max-width: 672px) {
+    .visible672{
+        visibility: visible !important;
+        display:inline !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .leftfix{
+        padding-left: 17% !important;
+    }
+}
+
+.linkclean{
+    text-decoration: none !important;
+    color:white !important;
+}
+
+.buttonmenu{
+
+    background-color: #1caf9a;
+    padding: 5px
+}
+
+.buttonmenulittle{
+
+    padding: 5px
+}
+
+a:hover{
+    opacity: 0.8 !important;
+}
+
+.label-mail-folder{
+    background-color: #ffffff;
+    border:1px solid;
+    border-color: #cccccc;
+    color:#cccccc;
+}
+
+.openincidence{
+    background-color: #e7c3c3;
+}
