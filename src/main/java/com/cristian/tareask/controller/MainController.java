@@ -12,18 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- *
- * @author Cristian
- */
+
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String helloWorld(Model m) {
-
-        String name = "Cristian Trave";
-        m.addAttribute("name", name);
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(Model m) {
 
         return "base/base";
     }
