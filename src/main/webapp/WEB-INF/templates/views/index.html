@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Tareask - Login</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    </head>
+    <body style="background-color: #1caf9a">
+        <div class="container">
+            <div class="row">       
+            <div class="col-lg-offset-4 col-lg-5 col-sm-offset-4 col-sm-5 col-xs-offset-2 col-xs-8">
+                <div style="margin-top: 40%">
+                    
+                    <!-- Header Logo -->
+                    <div style="text-align: center">
+                        <img th:src="@{/public/img/logowhite.png}" style="max-width: 200px;min-width: 150px;margin: 20px"/>
+                    </div>
+                    <!-- Header Logo | End -->
+                    
+                    <!-- Panel Login -->
+                    <div style="background-color: #eeeff1;padding: 20px">
+                        <form class="form-horizontal" action="logincheck.html" method="POST">
+                            <div class="form-group">
+
+                                <div class="col-sm-10">
+                                    <input type="text" name="email" class="form-control"  placeholder="E-mail"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-sm-10" style="opacity: 0.7">
+                                    <input type="password" name="password" class="form-control"  placeholder="Password"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10" style="text-align: center">
+                                    <button type="submit" class="btn btn-default" style="width: 100%;background-color:#1caf9a;color:white">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Panel Login | End -->
+                    
+                    <!-- Footer info -->
+                    <div style="text-align: center">
+                        <span style="color:white">Copyright 2016 - All rights reserved - Tareask</span>
+                    </div>
+                    <!-- Footer info | End -->
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- libs -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!-- libs | End -->
+        
+    </body>
+</html>
