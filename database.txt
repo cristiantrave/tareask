@@ -1,0 +1,389 @@
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE DATABASE IF NOT EXISTS `tareask` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `tareask`;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `department`;
+CREATE TABLE IF NOT EXISTS `department` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `department` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email`;
+CREATE TABLE IF NOT EXISTS `email` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `dateSync` timestamp NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user` (`user`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email_contact`;
+CREATE TABLE IF NOT EXISTS `email_contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` int(11) NOT NULL,
+  `contact` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `email` (`email`),
+  KEY `contact` (`contact`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email_conversation`;
+CREATE TABLE IF NOT EXISTS `email_conversation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `last` int(11) DEFAULT NULL,
+  `folder` int(11) DEFAULT NULL,
+  `readed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `folder` (`folder`),
+  KEY `last` (`last`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=70 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email_folder`;
+CREATE TABLE IF NOT EXISTS `email_folder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` int(11) NOT NULL,
+  `folder` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email_message`;
+CREATE TABLE IF NOT EXISTS `email_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `idUserSender` int(11) DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `conversation` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `conversation` (`conversation`),
+  KEY `idUserSender` (`idUserSender`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `email_status`;
+CREATE TABLE IF NOT EXISTS `email_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `grade`;
+CREATE TABLE IF NOT EXISTS `grade` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `grade` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `grade` (`grade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `group`;
+CREATE TABLE IF NOT EXISTS `group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `group_message`;
+CREATE TABLE IF NOT EXISTS `group_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `group` (`group`),
+  KEY `user` (`user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `group_status`;
+CREATE TABLE IF NOT EXISTS `group_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `group_users`;
+CREATE TABLE IF NOT EXISTS `group_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `group` (`group`),
+  KEY `user` (`user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `incidence`;
+CREATE TABLE IF NOT EXISTS `incidence` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `task` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `task` (`task`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `incidence_status`;
+CREATE TABLE IF NOT EXISTS `incidence_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `message_receptor`;
+CREATE TABLE IF NOT EXISTS `message_receptor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` int(11) NOT NULL,
+  `receptor` int(11) NOT NULL,
+  `conversation` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `receptor` (`receptor`),
+  KEY `message` (`message`),
+  KEY `conversation` (`conversation`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `milestone`;
+CREATE TABLE IF NOT EXISTS `milestone` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `order` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `task` (`task`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `milestone_status`;
+CREATE TABLE IF NOT EXISTS `milestone_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `session_user`;
+CREATE TABLE IF NOT EXISTS `session_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` int(11) NOT NULL,
+  `last` datetime NOT NULL,
+  `current` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user` (`user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `task`;
+CREATE TABLE IF NOT EXISTS `task` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `dateCreate` datetime NOT NULL,
+  `dateFinish` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  `group` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  `priority` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user` (`user`),
+  KEY `group` (`group`),
+  KEY `status` (`status`),
+  KEY `priority` (`priority`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `task_priority`;
+CREATE TABLE IF NOT EXISTS `task_priority` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `priority` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `task_report`;
+CREATE TABLE IF NOT EXISTS `task_report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `date` datetime NOT NULL,
+  `task` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `task` (`task`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `task_status`;
+CREATE TABLE IF NOT EXISTS `task_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `subname` varchar(20) NOT NULL,
+  `nickname` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `birthdate` date NOT NULL,
+  `admitDate` date NOT NULL,
+  `status` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `grade` int(11) NOT NULL,
+  `department` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`),
+  KEY `role` (`role`),
+  KEY `department` (`department`),
+  KEY `grade` (`grade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `user_status`;
+CREATE TABLE IF NOT EXISTS `user_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+
+ALTER TABLE `email`
+  ADD CONSTRAINT `email_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `email_ibfk_2` FOREIGN KEY (`status`) REFERENCES `email_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `email_contact`
+  ADD CONSTRAINT `email_contact_ibfk_1` FOREIGN KEY (`email`) REFERENCES `email` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `email_contact_ibfk_2` FOREIGN KEY (`contact`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `email_conversation`
+  ADD CONSTRAINT `email_conversation_ibfk_1` FOREIGN KEY (`folder`) REFERENCES `email_folder` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `email_conversation_ibfk_2` FOREIGN KEY (`last`) REFERENCES `email_message` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `email_folder`
+  ADD CONSTRAINT `email_folder_ibfk_1` FOREIGN KEY (`email`) REFERENCES `email` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `email_message`
+  ADD CONSTRAINT `email_message_ibfk_1` FOREIGN KEY (`idUserSender`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `email_message_ibfk_2` FOREIGN KEY (`conversation`) REFERENCES `email_conversation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `group`
+  ADD CONSTRAINT `group_ibfk_1` FOREIGN KEY (`status`) REFERENCES `group_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `group_message`
+  ADD CONSTRAINT `group_message_ibfk_1` FOREIGN KEY (`group`) REFERENCES `group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `group_message_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `group_users`
+  ADD CONSTRAINT `group_users_ibfk_1` FOREIGN KEY (`group`) REFERENCES `group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `group_users_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `incidence`
+  ADD CONSTRAINT `incidence_ibfk_1` FOREIGN KEY (`task`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `incidence_ibfk_2` FOREIGN KEY (`status`) REFERENCES `incidence_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `message_receptor`
+  ADD CONSTRAINT `message_receptor_ibfk_1` FOREIGN KEY (`message`) REFERENCES `email_message` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `message_receptor_ibfk_2` FOREIGN KEY (`receptor`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `message_receptor_ibfk_3` FOREIGN KEY (`conversation`) REFERENCES `email_conversation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `milestone`
+  ADD CONSTRAINT `milestone_ibfk_1` FOREIGN KEY (`task`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `milestone_ibfk_2` FOREIGN KEY (`status`) REFERENCES `milestone_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `session_user`
+  ADD CONSTRAINT `session_user_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `task`
+  ADD CONSTRAINT `task_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `task_ibfk_2` FOREIGN KEY (`status`) REFERENCES `task_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `task_ibfk_3` FOREIGN KEY (`group`) REFERENCES `group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `task_ibfk_4` FOREIGN KEY (`priority`) REFERENCES `task_priority` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `task_report`
+  ADD CONSTRAINT `task_report_ibfk_1` FOREIGN KEY (`task`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`status`) REFERENCES `user_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`grade`) REFERENCES `grade` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`department`) REFERENCES `department` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `user_ibfk_4` FOREIGN KEY (`role`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
