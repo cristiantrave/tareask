@@ -35,6 +35,9 @@ You need to add template system thymeleaf dependencies in pom.xml:
 ### Netbeans IDE
 - https://netbeans.org/
 
+## Spring MVC
+- https://spring.io/
+
 ### Hibernate ORM
 - http://hibernate.org/
 
