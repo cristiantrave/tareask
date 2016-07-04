@@ -25,6 +25,6 @@ public class MainController {
         String name = "Cristian Trave";
         m.addAttribute("name", name);
 
-        return "base/index";
+        return "base/base";
     }
 }

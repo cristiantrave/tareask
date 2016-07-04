@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html
+    xmlns         = "http://www.w3.org/1999/xhtml"
+    xmlns:th      = "http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <!-- Title heritage -->
+        <th:block layout:fragment="title">
+        </th:block>
+        <!-- Title heritage | End -->
+        
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+        <link rel="stylesheet" th:href="@{/public/css/style.css}" media="screen" />
     </head>
-    <body>
-        <div th:text="'Hello '+${name}+'!'">TODO write content</div>
+    
+    <body style="background-color: #e4e7ea">
+        <div class="container">
+            
+            <!-- Header -->
+            <div class="row">
+                
+                <!-- Logo -->
+                <div class="col-xs-2 col-sm-2">
+                    <a href="dashboard.html">
+                        <img th:src="@{/public/img/logo.png}" style="max-width: 150px;margin: 20px"/>
+                    </a>
+                </div>
+                <!-- Logo | End -->
+                
+                <!-- Menu -->
+                <div class="col-xs-10 col-sm-10 hidde640">
+                    <div style="text-align: right">
+                        <div style="margin: 20px;color:white"> 
+                            <a href="dashboard.html" class="linkclean"><span class="buttonmenu"><img th:src="@{/public/img/homeicon.png}" style="max-width: 10px;margin: 5px"/></span></a>
+                            <a href="#" class="dropdown-toggle linkclean" data-toggle="dropdown">
+                                <span class="buttonmenu"><img th:src="@{/public/img/adviceicon.png}" style="max-width: 10px;margin: 5px"/>Avisos</span>
+                                <ul class="dropdown-menu" style="margin-left: 42%">
+                                    <li><a href="#">Email[9]</a></li>
+                                    <li><a href="#">Grupos[10]</a></li>
+                                    <li><a href="#">Incidencias[1]</a></li>
+                                </ul>
+                            </a>
+                            <a href="profile.html" class="linkclean"><span class="buttonmenu"><img th:src="@{/public/img/profileicon.png}" style="max-width: 10px;margin: 5px"/>Perfil</span></a>
+                            <a href="tasks.html?view=group" class="linkclean"><span class="buttonmenu"><img th:src="@{/public/img/groupicon.png}" style="max-width: 10px;margin: 5px"/>Grupos</span></a>
+                            <a href="tasks.html" class="linkclean"><span class="buttonmenu"><img th:src="@{/public/img/taskicon.png}" style="max-width: 10px;margin: 5px"/>Tareas</span></a>
+                            <a href="logout.html" class="linkclean"><span class="buttonmenu"><img th:src="@{/public/img/logout.png}" style="max-width: 10px;margin: 5px"/>Logout</span></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Menu | End -->
+                
+                <!-- Menu little -->
+                <div class="row visible640" style="text-align: center;color:white;visibility: hidden">
+                    <div class="col-xs-12" style="background-color: #1caf9a;text-decoration: none">
+
+                        <a href="dashboard.html" class="linkclean"><span class="buttonmenulittle"><img th:src="@{/public/img/homeicon.png}" style="max-width: 10px;margin: 5px"/></span></a>
+                        <a href="#" class="dropdown-toggle linkclean" data-toggle="dropdown">
+                            <span class="buttonmenulittle"><img th:src="@{/public/img/adviceicon.png}" style="max-width: 10px;margin: 5px"/>Avisos</span>
+                                <ul class="dropdown-menu" style="margin-left: 42%">
+                                    <li><a href="#">Email[9]</a></li>
+                                    <li><a href="#">Grupos[10]</a></li>
+                                    <li><a href="#">Incidencias[1]</a></li>
+                                </ul>
+                        </a> |
+                        <a href="profile.html" class="linkclean"><span class="buttonmenulittle"><img th:src="@{/public/img/profileicon.png}" style="max-width: 10px;margin: 5px"/>Perfil</span></a> |
+                        <a href="tasks.html?view=group" class="linkclean"><span class="buttonmenulittle"><img th:src="@{/public/img/groupicon.png}" style="max-width: 10px;margin: 5px"/>Grupos</span></a> |
+                        <a href="tasks.html" class="linkclean"><span class="buttonmenulittle"><img th:src="@{/public/img/taskicon.png}" style="max-width: 10px;margin: 5px"/>Tareas</span></a>
+                    </div>                
+                </div>
+                <!-- Menu little | End -->
+                
+            </div>
+            <!-- Header | End -->
+            
+            <hr style="color:grey"/>  
+        </div>
+        
+        <!-- Content Heritage -->
+        <th:block layout:fragment="content">
+        </th:block>
+        <!-- Content Heritage | End -->
+        
+        <!-- JS Libs -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript" th:src="@{/public/js/app.js}" charset="utf-8"></script>
+        <!-- JS Libs | End -->
+        
     </body>
 </html>
