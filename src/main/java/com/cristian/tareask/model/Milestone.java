@@ -27,7 +27,7 @@ public class Milestone  implements java.io.Serializable {
      private Task task;
      private String title;
      private String description;
-     private int order;
+     private Integer order;
 
     public Milestone() {
     }
@@ -94,11 +94,11 @@ public class Milestone  implements java.io.Serializable {
 
     
     @Column(name="order", nullable=false)
-    public int getOrder() {
+    public Integer getOrder() {
         return this.order;
     }
     
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 
