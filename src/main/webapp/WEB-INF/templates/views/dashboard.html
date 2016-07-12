@@ -1,16 +1,290 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>Welcome to Dashboard</div>
-    </body>
-</html>
+<div layout:decorator="base/base">
+    <th:block layout:fragment="title">
+        <title>Dashboard - Tareask</title>
+    </th:block>
+    <th:block layout:fragment="content">
+        
+        <div class="container">
+            
+            <!-- Block Profile -->
+            <div class="row" style="background-color: white">
+                <!-- A Block Content Profile -->
+                <div class="col-xs-12 col-sm-3" style="background-color: #1caf9a;border-radius: 5px">
+                    <a href="profile.html" class="linkclean">
+                        <div class="row">
+                            <div class="hidden-xs col-sm-5 hidden-md">
+                                <img th:src="@{/public/img/profilepic.png}" style="max-width: 160px;margin:28px 10px 23px"/>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-md-12 col-lg-7">
+                                <div class="row" style="color:white;text-align: left;padding-left: 5px">
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-top: 40px">
+                                        <span>User name</span>
+                                        <span><br/></span>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12">
+                                        <span>Employee</span>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-bottom: 40px">
+                                        <span>Antique: 2 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="visible-xs col-xs-12" style="text-align: center;color:white">
+                                Profile resum
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- A Block Content Profile | End -->
+                
+                <!-- B Block Content Profile -->
+                <div class="col-xs-12 col-sm-9" style="background-color: white">
+                    <div class="row" style="padding-top: 20px;margin-bottom: 25px">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="row">
+                                <div class="col-xs-11 col-xs-offset-1">
+                                    <h6>LAST EMAILS</h6>
+                                </div>
+                                <!-- #Slider Mail -->
+                                <div class="col-xs-12"> 
+                                    <div class="row" >
+
+                                        <div class="col-xs-10 col-xs-offset-1" style="background-color: #e4e7ea">
+                                            <div class="row">
+                                                <div th:include="carousel/carousel :: carousel (carouselid=carouselmail)"></div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- #Slider Mail End -->
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="row">
+                                <div class="col-xs-11 col-xs-offset-1">
+                                    <h6>NEXT RELEASES</h6>
+                                </div>
+                                <!-- #Slider Mail -->
+                                <div class="col-xs-12"> 
+                                    <div class="row" >
+
+                                        <div class="col-xs-10 col-xs-offset-1" style="background-color: #e4e7ea">
+                                            <div class="row">
+                                                <div th:include="carousel/carousel :: carousel (carouselid=carouselnext)"></div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- #Slider Mail End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- B Block Content Profile | End -->
+            </div>
+            <!-- Block Profile | End -->
+            <br/><br/>
+            
+            <!-- Block Groups -->
+            <div class="row" style="background-color: white">
+                
+                <!-- A Block Content Groups -->
+                <div class="col-xs-12 col-sm-3" style="background-color: #1caf9a;border-radius: 5px">
+                    <a href="#" class="linkclean">
+                        <div class="row">
+                            <div class="hidden-xs col-sm-5 hidden-md">
+                                <img th:src="@{/public/img/groupicon.png}" style="max-width: 160px;margin:28px 10px 23px"/>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-md-12 col-lg-7">
+                                <div class="row" style="color:white;text-align: left;padding-left: 5px">
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-top: 40px">
+                                        <span>Cristian Travé</span>
+                                        <span><br/></span>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12">
+                                        <span>Employee</span>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-bottom: 76px">
+                                        <span>Antique: 2 years</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="visible-xs col-xs-12" style="text-align: center;color:white">
+                                Group News
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- A Block Content Groups | End -->
+                
+                <!-- B Block Content Groups -->
+                <div class="col-xs-12 col-sm-9" style="background-color: white">
+                    <div class="row" style="padding-top: 20px;margin-bottom: 25px">
+
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-11 col-xs-offset-1">
+                                    <h6>GROUP ACTIVITY</h6>
+                                </div>
+                                <!-- #Slider Mail -->
+                                <div class="col-xs-12"> 
+                                    <div class="row" >
+                                        <div class="col-xs-10 col-xs-offset-1" style="background-color: #e4e7ea">
+                                            <div class="row">
+                                                <div th:include="carousel/carousel :: carousel (carouselid=carouselgroup)"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- #Slider Mail End -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- B Block Content Groups | End -->
+                
+            </div>
+            <!-- Block Groups | End -->
+            
+            <br/><br/>
+            
+            <!-- Block Tasks -->
+            <div class="row" style="background-color: white">
+                
+                <!-- A Block Content Tasks -->
+                <div class="col-xs-12 col-sm-3" style="background-color: #1caf9a;border-radius: 5px">
+                    <a href="tasks.html" class="linkclean">  
+                        <div class="row">
+                            <div class="hidden-xs col-sm-5 hidden-md">
+                                <img th:src="@{/public/img/taskicon.png}" style="max-width: 160px;margin:28px 10px 23px"/>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-md-12 col-lg-7">
+                                <div class="row" style="color:white;text-align: left;padding-left: 5px">
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-top: 40px">
+                                        <span>Cristian Travé</span>
+                                        <span><br/></span>
+
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12">
+                                        <span>Employee</span>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-12" style="margin-bottom: 40px">
+                                        <span>Antique: 2 years</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="visible-xs col-xs-12" style="text-align: center;color:white">
+                                Profile resum
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- A Block Content Tasks | End -->
+                
+                <!-- B Block Content Tasks -->
+                <div class="col-xs-12 col-sm-9" style="background-color: white">
+                    <div class="row" style="padding-top: 20px;margin-bottom: 25px">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="row">
+                                <div class="col-xs-11 col-xs-offset-1">
+                                    <h6>NEXT TASKS</h6>
+                                </div>
+                                <!-- #Slider Mail -->
+                                <div class="col-xs-12"> 
+                                    <div class="row" >
+
+                                        <div class="col-xs-10 col-xs-offset-1" style="background-color: #e4e7ea">
+                                            <div class="row">
+                                                <div th:include="carousel/carousel :: carousel (carouselid=carouseltaskactivity)"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- #Slider Mail End -->
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="row">
+                                <div class="col-xs-11 col-xs-offset-1">
+                                    <h6>STATISTICS</h6>
+                                </div>
+                                <!-- #Slider Mail -->
+                                <div class="col-xs-12"> 
+                                    <div class="row" >
+
+                                        <div class="col-xs-10 col-xs-offset-1" style="background-color: #e4e7ea">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <div class="row" style="margin-top:12px;margin-bottom: 12px">
+
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-size: 10px">INCIDENCES</span>
+                                                        </div>
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-weight: bolder;font-size: 28px">6</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="row" style="margin-top:12px;margin-bottom: 12px">
+
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-size: 10px">RATIO/SUCESS</span>
+                                                        </div>
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-weight: bolder;font-size: 28px">65%</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="row" style="margin-top:12px;margin-bottom: 12px">
+
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-size: 10px">ANTICIPATED</span>
+                                                        </div>
+                                                        <div class="col-xs-12" style="text-align: center">
+                                                            <span style="font-weight: bolder;font-size: 28px">75%</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- #Slider Mail End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- B Block Content Tasks | End -->
+                
+            </div>
+            <!-- Block Tasks | End -->
+            
+        </div>
+
+    </th:block>
+</div>
