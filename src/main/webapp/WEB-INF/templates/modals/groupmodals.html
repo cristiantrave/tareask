@@ -1,0 +1,245 @@
+<div th:fragment="details">     
+    <div id="modalgroup1details" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <h4 style="color: #1caf9a">Task - <span style="color:grey">Task name</span></h4>                                                                    
+                            <hr/>
+                            <h4 style="color: #1caf9a">Description</h4>
+                            <div class="well">
+                                <p class="higl">Example text description</p>
+                            </div>
+                            <div class="well">
+                                <h4 style="color: #1caf9a">Milestones</h4>
+                                <ul>
+                                    <li>Milestone #1</li>
+                                    <li>Milestone #2</li>
+                                    <li>Milestone #3</li>
+                                </ul>
+                            </div>
+                            <h4 style="color: #1caf9a">Date creation</h4>
+                            <p>12/12/2012</p>
+                            <h4 style="color: #1caf9a">Date expire</h4>
+                            <p>12/12/2012</p>
+                            <h4 style="color: #1caf9a">Reports</h4>
+                            <!-- Add Report -->
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <a data-toggle="collapse" href="#addreport" style="color:inherit;text-decoration: none">
+                                        <div class="panel-heading" style="background-color: #b2dba1 !important">
+                                            <h4 class="panel-title">
+                                                Add report
+                                            </h4>
+                                        </div>
+                                    </a>
+                                    <div id="addreport" class="panel-collapse collapse">
+
+                                        <form class="form-horizontal" style="margin: 10px">
+                                            <div class="form-group">
+                                                <label for="title" class="col-sm-2 control-label">Title</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="title"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-default">Submit report</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Report End -->
+                            <a href="#report1" style="color:inherit;text-decoration: none" data-toggle="collapse">
+                                <div class="well" >
+                                    Title - 12/12/2012 22:12h
+                                    <div id="report1" class="collapse">
+                                        <hr/>
+                                        Lorem ipsum dolor text....
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#report2" style="color:inherit;text-decoration: none" data-toggle="collapse">
+                                <div class="well">
+                                    Title - 12/12/2012 22:12h
+                                    <div id="report2" class="collapse">
+                                        <hr/>
+                                        Lorem ipsum dolor text....
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:fragment="completed">
+    <div id="modalgroup1completed" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:fragment="incidence">
+    <div id="modalgroup1incidence" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:fragment="organization">
+    <div id="modalgroup1organization" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:fragment="comunication">
+    <div th:id="'modaltask'+${model.task.id}+'comunication'" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color: darkslategray"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Comunication</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Add Message -->
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" href="#addmessage" style="color:inherit;text-decoration: none">
+                                <div class="panel-heading" style="background-color: #b2dba1 !important">
+                                    <h4 class="panel-title">
+                                        Add message
+                                    </h4>
+                                </div>
+                            </a>
+                            <div id="addmessage" class="panel-collapse collapse">
+
+                                <form class="form-horizontal" style="margin: 10px">
+                                    <div class="form-group">
+                                        <label for="title" class="col-sm-2 control-label">Title</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="title"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message" class="col-sm-2 control-label">Message</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-default">Submit message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Message End -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:fragment="groupsfilter">
+    <div id="groupsfilter" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
